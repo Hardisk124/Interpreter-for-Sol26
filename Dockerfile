@@ -45,11 +45,11 @@ FROM python:3.14-slim AS build
 COPY int/requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir --target /app/dist-packages -r /tmp/requirements.txt
 
-# Copy interpreter source code
-COPY int/src /app/src
+# Copy interpreter project tree 
+COPY int /app/int
 
-# Ensure src directory is part of Python path
-ENV PYTHONPATH="/app/src:/app/dist-packages"
+# Ensure package root is part of Python path
+ENV PYTHONPATH="/app:/app/dist-packages"
 
 WORKDIR /app
 
@@ -91,16 +91,16 @@ WORKDIR /app
 
 # Copy runtime dependencies and source from build stage
 COPY --from=build /app/dist-packages /app/dist-packages
-COPY --from=build /app/src /app/src
+COPY --from=build /app/int /app/int
 
 # Set Python path to include installed packages
-ENV PYTHONPATH="/app/src:/app/dist-packages"
+ENV PYTHONPATH="/app:/app/dist-packages"
 
 # Ensure text output is not buffered
 ENV PYTHONUNBUFFERED=1
 
 # Entry point: run the Python interpreter; docker run args are forwarded to solint.py
-ENTRYPOINT ["python3", "/app/src/solint.py"]
+ENTRYPOINT ["python3", "/app/int/src/solint.py"]
 
 
 # ============================================================================
@@ -122,6 +122,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Install system dependencies needed to build lxml on Python 3.14
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
+    diffutils \
     libxml2-dev \
     libxslt1-dev \
     zlib1g-dev \
@@ -140,9 +141,18 @@ WORKDIR /app/tester
 COPY --from=build-test /app/dist ./
 # Copy node_modules with only production dependencies (dev dependencies removed by npm prune)
 COPY --from=build-test /app/node_modules node_modules/
+# Copy parser script and expose it as `sol2xml` command for tester runner
+COPY --from=build-test /app/sol2xml/sol_to_xml.py /usr/local/bin/sol2xml
+
+# Provide expected executable names used by tester's default config
+RUN chmod +x /usr/local/bin/sol2xml && \
+    printf '%s\n' '#!/bin/sh' 'exec python3 /app/int/src/solint.py "$@"' > /usr/local/bin/interpreter && \
+    chmod +x /usr/local/bin/interpreter
 
 # Ensure interpreter is still accessible
-ENV PYTHONPATH="/app/src:/app/dist-packages"
+ENV PYTHONPATH="/app:/app/dist-packages"
+ENV SOL2XML_PATH="/usr/local/bin/sol2xml"
+ENV INTERPRETER_PATH="/usr/local/bin/interpreter"
 
 # Entry point: run the TypeScript tester; docker run args are forwarded to tester.js
 ENTRYPOINT ["node", "./tester.js"]
