@@ -1,0 +1,16 @@
++++ BLOCKS
+*** Verifies block semantics for "while true", including parameter passing, captured context, and block execution result.
+!C! 0
+!I! 0
+>>> 2
+
+class Main : Object {
+  run [|
+    i := 1.
+    _ := [| _ := (i greaterThan: 3) not. ] whileTrue: [|
+      _ := (i asString) print.
+      _ := '\n' print.
+      i := i plus: 1.
+    ].
+  ]
+}

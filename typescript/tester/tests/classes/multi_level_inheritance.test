@@ -1,0 +1,21 @@
++++ CLASSES
+*** Verifies class and method semantics for "multi level inheritance", including dispatch, inheritance, and method execution behavior.
+!C! 0
+!I! 0
+>>> 1
+
+class A : Object {
+  who [|
+    _ := 'A' print.
+  ]
+}
+class B : A {
+}
+class C : B {
+}
+class Main : Object {
+  run [|
+    c := C new.
+    _ := c who.
+  ]
+}

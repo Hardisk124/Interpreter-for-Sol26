@@ -1,0 +1,15 @@
++++ EDGECASES
+*** Verifies edge-case behavior for "nil singleton" to ensure stable and consistent semantics in boundary conditions.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    a := Nil new.
+    b := Nil new.
+    _ := ((a identicalTo: b) asString) print.
+    _ := ' ' print.
+    _ := ((a identicalTo: nil) asString) print.
+  ]
+}

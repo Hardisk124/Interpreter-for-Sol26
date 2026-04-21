@@ -1,0 +1,14 @@
++++ BLOCKS
+*** Verifies block semantics for "closure basic", including parameter passing, captured context, and block execution result.
+!C! 0
+!I! 0
+>>> 2
+
+class Main : Object {
+  run [|
+    x := 10.
+    b := [| _ := (x asString) print. ].
+    x := 20.
+    _ := b value.
+  ]
+}

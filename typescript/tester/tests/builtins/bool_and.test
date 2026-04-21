@@ -1,0 +1,15 @@
++++ BUILTINS
+*** Verifies built-in message behavior for "boolean and" and checks that returned values and side effects match expectations.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    r1 := true and: [| _ := true. ].
+    r2 := false and: [| _ := true. ].
+    _ := (r1 asString) print.
+    _ := ' ' print.
+    _ := (r2 asString) print.
+  ]
+}

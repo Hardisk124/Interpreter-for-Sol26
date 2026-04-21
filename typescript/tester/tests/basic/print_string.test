@@ -1,0 +1,11 @@
++++ BASIC
+*** Verifies the basic language/runtime scenario "print string" and checks that the observable output and exit behavior are correct.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    _ := 'hello' print.
+  ]
+}

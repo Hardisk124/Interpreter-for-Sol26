@@ -1,0 +1,9 @@
++++ ERRORS
+*** Verifies that the "wrong block arity" scenario triggers the expected error code and that invalid behavior is rejected correctly.
+!C! 0
+!I! 33
+>>> 1
+
+class Main : Object {
+  foo: [|]
+}

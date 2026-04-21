@@ -1,0 +1,13 @@
++++ BUILTINS
+*** Verifies built-in message behavior for "integer greater than" and checks that returned values and side effects match expectations.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    _ := ((10 greaterThan: 3) asString) print.
+    _ := ' ' print.
+    _ := ((3 greaterThan: 10) asString) print.
+  ]
+}

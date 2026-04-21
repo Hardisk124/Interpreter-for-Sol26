@@ -1,0 +1,15 @@
++++ EDGECASES
+*** Verifies edge-case behavior for "string escape sequences" to ensure stable and consistent semantics in boundary conditions.
+!C! 0
+!I! 0
+>>> 2
+
+class Main : Object {
+  run [|
+    _ := 'line1\nline2' print.
+    _ := '\n' print.
+    _ := 'it\'s' print.
+    _ := '\n' print.
+    _ := 'back\\slash' print.
+  ]
+}

@@ -1,0 +1,14 @@
++++ BASIC
+*** Verifies the basic language/runtime scenario "integer arithmetic" and checks that the observable output and exit behavior are correct.
+!C! 0
+!I! 0
+>>> 2
+
+class Main : Object {
+  run [|
+    a := 3 plus: 4.
+    b := 10 minus: 3.
+    c := a multiplyBy: b.
+    _ := (c asString) print.
+  ]
+}

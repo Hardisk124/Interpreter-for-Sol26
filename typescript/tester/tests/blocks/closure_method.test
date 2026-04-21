@@ -1,0 +1,16 @@
++++ BLOCKS
+*** Verifies block semantics for "closure method", including parameter passing, captured context, and block execution result.
+!C! 0
+!I! 0
+>>> 2
+
+class Main : Object {
+  makeAdder: [ :n |
+    b := [ :x | _ := (x plus: n). ].
+  ]
+  run [|
+    adder := self makeAdder: 5.
+    result := adder value: 3.
+    _ := (result asString) print.
+  ]
+}

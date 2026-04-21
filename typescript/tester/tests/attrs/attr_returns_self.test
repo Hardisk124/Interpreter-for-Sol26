@@ -1,0 +1,12 @@
++++ ATTRS
+*** Verifies attribute behavior in the scenario "attribute returns self", including correct assignment, lookup, and returned values.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    r := self name: 'test'.
+    _ := ((r identicalTo: self) asString) print.
+  ]
+}

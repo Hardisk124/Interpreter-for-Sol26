@@ -1,0 +1,8 @@
++++ ERRORS
+*** Verifies that the "wrong XML structure" scenario triggers the expected error code and that invalid behavior is rejected correctly.
+!I! 42
+>>> 1
+
+<?xml version="1.0" encoding="UTF-8"?>
+<program language="WRONG_LANGUAGE">
+</program>

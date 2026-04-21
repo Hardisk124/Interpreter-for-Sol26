@@ -1,0 +1,17 @@
++++ CLASSES
+*** Verifies class and method semantics for "simple method", including dispatch, inheritance, and method execution behavior.
+!C! 0
+!I! 0
+>>> 1
+
+class Greeter : Object {
+  greet [|
+    _ := 'hi' print.
+  ]
+}
+class Main : Object {
+  run [|
+    g := Greeter new.
+    _ := g greet.
+  ]
+}

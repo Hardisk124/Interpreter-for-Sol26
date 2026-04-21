@@ -1,0 +1,11 @@
++++ ERRORS
+*** Verifies that the "message not understood" scenario triggers the expected error code and that invalid behavior is rejected correctly.
+!C! 0
+!I! 51
+>>> 1
+
+class Main : Object {
+  run [|
+    _ := 42 nonExistentMethod.
+  ]
+}

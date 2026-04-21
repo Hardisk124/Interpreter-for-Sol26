@@ -1,0 +1,20 @@
++++ EDGECASES
+*** Verifies edge-case behavior for "nested blocks" to ensure stable and consistent semantics in boundary conditions.
+!C! 0
+!I! 0
+>>> 2
+
+class Main : Object {
+  run [|
+    outer := 'out'.
+    b1 := [|
+      middle := 'mid'.
+      b2 := [|
+        _ := outer print.
+        _ := middle print.
+      ].
+      _ := b2 value.
+    ].
+    _ := b1 value.
+  ]
+}

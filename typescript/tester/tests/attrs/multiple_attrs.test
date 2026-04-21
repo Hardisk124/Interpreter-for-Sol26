@@ -1,0 +1,14 @@
++++ ATTRS
+*** Verifies attribute behavior in the scenario "multiple attributes", including correct assignment, lookup, and returned values.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    _ := self x: 10.
+    _ := self y: 20.
+    sum := (self x) plus: (self y).
+    _ := (sum asString) print.
+  ]
+}

@@ -1,0 +1,12 @@
++++ BASIC
+*** Verifies the basic language/runtime scenario "string substring" and checks that the observable output and exit behavior are correct.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    s := 'hello world'.
+    _ := (s startsWith: 1 endsBefore: 6) print.
+  ]
+}

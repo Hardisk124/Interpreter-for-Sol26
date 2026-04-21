@@ -1,0 +1,17 @@
++++ CLASSES
+*** Verifies class and method semantics for "method with arg", including dispatch, inheritance, and method execution behavior.
+!C! 0
+!I! 0
+>>> 1
+
+class Printer : Object {
+  printIt: [ :val |
+    _ := val print.
+  ]
+}
+class Main : Object {
+  run [|
+    p := Printer new.
+    _ := p printIt: 'works'.
+  ]
+}

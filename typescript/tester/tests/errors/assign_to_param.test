@@ -1,0 +1,12 @@
++++ ERRORS
+*** Verifies that the "assign to param" scenario triggers the expected error code and that invalid behavior is rejected correctly.
+!C! 0
+!I! 34
+>>> 1
+
+class Main : Object {
+  run [|
+    b := [:x | x := 5. ].
+    _ := b value: 1.
+  ]
+}

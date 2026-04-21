@@ -1,0 +1,14 @@
++++ ATTRS
+*** Verifies attribute behavior in the scenario "attribute nil default", including correct assignment, lookup, and returned values.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    _ := self v: 5.
+    _ := self v: nil.
+    _ := self v: 7.
+    _ := ((self v) asString) print.
+  ]
+}

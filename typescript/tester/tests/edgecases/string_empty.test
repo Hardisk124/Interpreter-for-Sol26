@@ -1,0 +1,12 @@
++++ EDGECASES
+*** Verifies edge-case behavior for "string empty" to ensure stable and consistent semantics in boundary conditions.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    s := ''.
+    _ := ((s length) asString) print.
+  ]
+}

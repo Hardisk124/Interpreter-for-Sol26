@@ -1,0 +1,9 @@
++++ ERRORS
+*** Verifies that the "missing main" scenario triggers the expected error code and that invalid behavior is rejected correctly.
+!C! 0
+!I! 31
+>>> 1
+
+class Foo : Object {
+  run [|]
+}

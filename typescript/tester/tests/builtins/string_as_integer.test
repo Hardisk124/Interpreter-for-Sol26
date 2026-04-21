@@ -1,0 +1,12 @@
++++ BUILTINS
+*** Verifies built-in message behavior for "string as integer" and checks that returned values and side effects match expectations.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    n := '42' asInteger.
+    _ := ((n plus: 1) asString) print.
+  ]
+}

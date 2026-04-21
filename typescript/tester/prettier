@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /src/tester-deps/node_modules/.bin/prettier "$@"

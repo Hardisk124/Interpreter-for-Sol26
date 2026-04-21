@@ -1,0 +1,17 @@
++++ BLOCKS
+*** Verifies block semantics for "block as arg", including parameter passing, captured context, and block execution result.
+!C! 0
+!I! 0
+>>> 1
+
+class Runner : Object {
+  execute: [ :blk |
+    _ := blk value.
+  ]
+}
+class Main : Object {
+  run [|
+    r := Runner new.
+    _ := r execute: [| _ := 'ran' print. ].
+  ]
+}

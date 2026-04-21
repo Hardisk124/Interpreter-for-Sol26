@@ -1,0 +1,9 @@
++++ ERRORS
+*** Verifies that the "invalid XML" scenario triggers the expected error code and that invalid behavior is rejected correctly.
+!I! 20
+>>> 1
+
+<?xml version="1.0" encoding="UTF-8"?>
+<program language="SOL26">
+  <unclosed_tag>
+</program>

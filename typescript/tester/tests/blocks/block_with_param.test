@@ -1,0 +1,12 @@
++++ BLOCKS
+*** Verifies block semantics for "block with param", including parameter passing, captured context, and block execution result.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    b := [ :x | _ := x print. ].
+    _ := b value: 'hello'.
+  ]
+}

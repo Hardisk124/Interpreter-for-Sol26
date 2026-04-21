@@ -1,0 +1,13 @@
++++ EDGECASES
+*** Verifies edge-case behavior for "underscore discard" to ensure stable and consistent semantics in boundary conditions.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    _ := 'a' print.
+    _ := 'b' print.
+    _ := 'c' print.
+  ]
+}

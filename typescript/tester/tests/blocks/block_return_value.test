@@ -1,0 +1,13 @@
++++ BLOCKS
+*** Verifies block semantics for "block return value", including parameter passing, captured context, and block execution result.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    b := [| _ := 42. ].
+    r := b value.
+    _ := (r asString) print.
+  ]
+}

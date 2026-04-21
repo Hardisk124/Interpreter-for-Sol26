@@ -1,0 +1,18 @@
++++ CLASSES
+*** Verifies class and method semantics for "method return value", including dispatch, inheritance, and method execution behavior.
+!C! 0
+!I! 0
+>>> 1
+
+class Calc : Object {
+  double: [ :x |
+    _ := x multiplyBy: 2.
+  ]
+}
+class Main : Object {
+  run [|
+    c := Calc new.
+    result := c double: 5.
+    _ := (result asString) print.
+  ]
+}

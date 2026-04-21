@@ -1,0 +1,22 @@
++++ EDGECASES
+*** Verifies edge-case behavior for "super as self" to ensure stable and consistent semantics in boundary conditions.
+!C! 0
+!I! 0
+>>> 1
+
+class A : Object {
+  who: [ :x |
+    _ := ((x identicalTo: self) asString) print.
+  ]
+}
+class B : A {
+  run [|
+    _ := self who: super.
+  ]
+}
+class Main : Object {
+  run [|
+    b := B new.
+    _ := b run.
+  ]
+}

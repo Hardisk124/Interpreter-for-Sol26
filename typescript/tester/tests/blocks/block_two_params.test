@@ -1,0 +1,15 @@
++++ BLOCKS
+*** Verifies block semantics for "block two params", including parameter passing, captured context, and block execution result.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    b := [ :x :y |
+      r := x concatenateWith: y.
+      _ := r print.
+    ].
+    _ := b value: 'foo' value: 'bar'.
+  ]
+}

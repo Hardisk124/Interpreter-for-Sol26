@@ -1,0 +1,14 @@
++++ ATTRS
+*** Verifies attribute behavior in the scenario "attribute overwrite", including correct assignment, lookup, and returned values.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    _ := self val: 1.
+    _ := self val: 2.
+    _ := self val: 3.
+    _ := ((self val) asString) print.
+  ]
+}

@@ -1,0 +1,30 @@
++++ CLASSES
+*** Verifies class and method semantics for "polymorphism", including dispatch, inheritance, and method execution behavior.
+!C! 0
+!I! 0
+>>> 2
+
+class Shape : Object {
+  area [|
+    _ := '0' print.
+  ]
+}
+class Circle : Shape {
+  area [|
+    _ := 'circle' print.
+  ]
+}
+class Square : Shape {
+  area [|
+    _ := 'square' print.
+  ]
+}
+class Main : Object {
+  run [|
+    c := Circle new.
+    s := Square new.
+    _ := c area.
+    _ := '\n' print.
+    _ := s area.
+  ]
+}

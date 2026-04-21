@@ -1,0 +1,13 @@
++++ BLOCKS
+*** Verifies block semantics for "empty block returns nil", including parameter passing, captured context, and block execution result.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    b := [|].
+    r := b value.
+    _ := (r asString) print.
+  ]
+}

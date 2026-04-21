@@ -1,0 +1,12 @@
++++ EDGECASES
+*** Verifies edge-case behavior for "while zero iterations" to ensure stable and consistent semantics in boundary conditions.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    r := [| _ := false. ] whileTrue: [| _ := 'x' print. ].
+    _ := (r asString) print.
+  ]
+}

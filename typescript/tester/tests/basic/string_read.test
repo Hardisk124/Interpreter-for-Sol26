@@ -1,0 +1,12 @@
++++ BASIC
+*** Verifies the basic language/runtime scenario "string read" and checks that the observable output and exit behavior are correct.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    s := String read.
+    _ := s print.
+  ]
+}

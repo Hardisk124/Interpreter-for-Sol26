@@ -1,0 +1,13 @@
++++ BUILTINS
+*** Verifies built-in message behavior for "integer from" and checks that returned values and side effects match expectations.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    a := 10.
+    b := Integer from: a.
+    _ := (b asString) print.
+  ]
+}

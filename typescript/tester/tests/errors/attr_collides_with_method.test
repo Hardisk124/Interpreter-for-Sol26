@@ -1,0 +1,12 @@
++++ ERRORS
+*** Verifies that the "attribute collides with method" scenario triggers the expected error code and that invalid behavior is rejected correctly.
+!C! 0
+!I! 54
+>>> 1
+
+class Main : Object {
+  foo [|]
+  run [|
+    _ := self foo: 42.
+  ]
+}

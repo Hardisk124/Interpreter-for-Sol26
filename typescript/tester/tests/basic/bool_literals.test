@@ -1,0 +1,13 @@
++++ BASIC
+*** Verifies the basic language/runtime scenario "boolean literals" and checks that the observable output and exit behavior are correct.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    _ := (true asString) print.
+    _ := '\n' print.
+    _ := (false asString) print.
+  ]
+}

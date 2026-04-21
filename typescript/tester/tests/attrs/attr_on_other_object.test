@@ -1,0 +1,13 @@
++++ ATTRS
+*** Verifies attribute behavior in the scenario "attribute on other object", including correct assignment, lookup, and returned values.
+!C! 0
+!I! 0
+>>> 1
+
+class Main : Object {
+  run [|
+    obj := Object new.
+    _ := obj label: 'hello'.
+    _ := (obj label) print.
+  ]
+}
